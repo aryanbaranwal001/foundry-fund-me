@@ -21,6 +21,10 @@ contract FundMe {
         i_owner = msg.sender;
     }
 
+    function getPriceFeed() public view returns (AggregatorV3Interface) {
+        return s_priceFeed;
+    }
+
     function getOwner() public view returns (address) {
         return i_owner;
     }
