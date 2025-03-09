@@ -31,7 +31,8 @@ dotest:
 	read msg; \
 	forge test --mt "$$msg"
 
-
+deploy-sepolia:
+	forge script script/DeployFundMe.s.sol:DeployFundMe --rpc-url $() --private-key $() --broadcast --verify --etherscan-api-key $() -vvvv
 
 
 
