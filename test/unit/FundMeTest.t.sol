@@ -2,8 +2,8 @@
 pragma solidity ^0.8.18;
 
 import {Test, console} from "lib/forge-std/src/Test.sol";
-import {FundMe} from "../src/FundMe.sol";
-import {DeployFundMe} from "../script/DeployFundMe.s.sol";
+import {FundMe} from "../../src/FundMe.sol";
+import {DeployFundMe} from "../../script/DeployFundMe.s.sol";
 
 contract FundMeTest is Test {
     FundMe fundMe;
@@ -110,7 +110,7 @@ contract FundMeTest is Test {
         assert((numberOfFunders + 1) * SEND_VALUE == fundMe.getOwner().balance - startingOwnerBalance);
     }
 
-    function testPrintStorageData() view public {
+    function testPrintStorageData() public view {
         for (uint256 i = 0; i < 3; i++) {
             bytes32 value = vm.load(address(fundMe), bytes32(i));
             console.log("Value at location", i, ":");
